@@ -220,7 +220,7 @@ function App() {
         {/* View: Dashboard */}
         {currentView === 'dashboard' && reportData && (
           <div ref={dashboardRef} className="space-y-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 border-b border-[var(--color-charm-border)] pb-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 border-b border-[var(--color-charm-border)] pb-6 relative z-50">
               <div>
                 <h2 className="text-3xl font-bold font-heading text-[var(--color-charm-heading)]">Analysis Dashboard</h2>
                 <p className="charm-label-mono mt-2">File: {reportData.filename}</p>
