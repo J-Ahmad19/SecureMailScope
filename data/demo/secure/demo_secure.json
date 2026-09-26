@@ -1,0 +1,45 @@
+{
+  "filename": "demo_secure.pcap",
+  "status": "completed",
+  "total_sessions": 1,
+  "tls_sessions": 1,
+  "plaintext_sessions": 0,
+  "overall_risk_score": 5,
+  "risk_level": "Low",
+  "sessions": [
+    {
+      "source_ip": "192.168.1.10",
+      "source_port": 54321,
+      "destination_ip": "10.0.0.5",
+      "destination_port": 993,
+      "protocol": "IMAP",
+      "starttls_detected": "not_detected", 
+      "tls_version": "TLSv1.3",
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "key_exchange": "ECDHE",
+      "forward_secrecy": "detected",
+      "anomaly_score": 2,
+      "certificate": {
+        "subject": "CN=imap.example.com",
+        "issuer": "CN=Trusted CA",
+        "valid_from": "2024-01-01T00:00:00",
+        "valid_to": "2025-01-01T00:00:00",
+        "public_key_algorithm": "RSA",
+        "public_key_length": 2048,
+        "signature_algorithm": "sha256WithRSAEncryption",
+        "status": "valid"
+      },
+      "findings": [
+        {
+          "rule_id": "SEC-001",
+          "title": "Secure Connection",
+          "severity": "Low",
+          "confidence": "high",
+          "description": "Modern TLS configuration used with a valid certificate.",
+          "evidence": "TLSv1.3 negotiated with strong cipher suite.",
+          "recommendation": "Maintain current configuration."
+        }
+      ]
+    }
+  ]
+}

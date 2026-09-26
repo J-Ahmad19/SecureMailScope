@@ -1,0 +1,45 @@
+{
+  "filename": "demo_expired_cert.pcap",
+  "status": "completed",
+  "total_sessions": 1,
+  "tls_sessions": 1,
+  "plaintext_sessions": 0,
+  "overall_risk_score": 60,
+  "risk_level": "Medium",
+  "sessions": [
+    {
+      "source_ip": "192.168.1.10",
+      "source_port": 54323,
+      "destination_ip": "10.0.0.5",
+      "destination_port": 110,
+      "protocol": "POP3",
+      "starttls_detected": "detected", 
+      "tls_version": "TLSv1.2",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+      "key_exchange": "ECDHE",
+      "forward_secrecy": "detected",
+      "anomaly_score": 10,
+      "certificate": {
+        "subject": "CN=pop3.example.com",
+        "issuer": "CN=Example CA",
+        "valid_from": "2020-01-01T00:00:00",
+        "valid_to": "2021-01-01T00:00:00",
+        "public_key_algorithm": "RSA",
+        "public_key_length": 2048,
+        "signature_algorithm": "sha256WithRSAEncryption",
+        "status": "expired"
+      },
+      "findings": [
+        {
+          "rule_id": "VULN-003",
+          "title": "Expired Certificate",
+          "severity": "Medium",
+          "confidence": "high",
+          "description": "The X.509 certificate presented by the server has expired.",
+          "evidence": "Certificate valid_to date is in the past.",
+          "recommendation": "Renew and replace the server certificate immediately."
+        }
+      ]
+    }
+  ]
+}
