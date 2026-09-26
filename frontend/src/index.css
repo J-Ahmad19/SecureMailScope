@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "DM Sans", "Circular", sans-serif;
+  --font-mono: "Fragment Mono", monospace;
+
+  /* Charm Color Palette */
+  --color-charm-surface: #F7F7F5;
+  --color-charm-panel: #FBFAF9;
+  --color-charm-accent: #F1F2EA;
+  --color-charm-brand: #E4544B;
+  --color-charm-brand-text: #C9443A;
+  --color-charm-heading: #1C1917;
+  --color-charm-body: #57534E;
+  --color-charm-muted: #79716B;
+  --color-charm-border: #E7E6E5;
+
+  /* We override existing functional colors so we don't have to rename everything in App.jsx */
+  --color-surface: var(--color-charm-panel);
+  --color-primary: var(--color-charm-accent);
+  --color-secondary: var(--color-charm-brand);
+  --color-text: var(--color-charm-body);
+  
+  --color-success: #16A34A; /* Genuine success state */
+  --color-warning: #D97706; /* Genuine warning state */
+  --color-danger: #DC2626;  /* Genuine danger state */
+  
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-charm-body);
+    background-color: var(--color-charm-surface);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-charm-heading);
+    letter-spacing: -0.02em; /* tight tracking for friendly/confident voice */
+  }
+  
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  /* Utility classes mapped from the Charm spec */
+  .btn-primary {
+    @apply rounded-full bg-[var(--color-charm-brand)] text-white shadow-sm hover:shadow-md hover:opacity-90 transition-all font-sans font-medium px-6 py-2;
+  }
+  
+  .btn-secondary {
+    @apply rounded-full border border-[var(--color-charm-border)] text-[var(--color-charm-heading)] hover:bg-[var(--color-charm-accent)] transition-all font-sans font-medium px-6 py-2;
+  }
+  
+  .charm-panel {
+    @apply rounded-[24px] bg-[var(--color-charm-panel)] shadow-sm border border-[var(--color-charm-border)];
+  }
+
+  .charm-input {
+    @apply rounded-full border border-[var(--color-charm-border)] bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-charm-brand)] text-sm;
+  }
+  
+  .charm-label-mono {
+    @apply font-mono uppercase text-xs tracking-wider text-[var(--color-charm-muted)];
+  }
+}
